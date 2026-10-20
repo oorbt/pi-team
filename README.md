@@ -14,20 +14,20 @@ From this repository (once pushed):
 
 ```bash
 # personal: available in every project (written to ~/.pi/agent/settings.json)
-pi install git:github.com/<you>/pi-team
+pi install git:github.com/oorbt/pi-team
 
 # project-local: recorded in .pi/settings.json, loads after project trust
-pi install -l git:github.com/<you>/pi-team
+pi install -l git:github.com/oorbt/pi-team
 ```
 
 Or try it for one invocation without installing:
 
 ```bash
-pi -e git:github.com/<you>/pi-team
+pi -e git:github.com/oorbt/pi-team
 ```
 
 Update after pushing changes: `pi update --extensions`.
-Remove with: `pi remove git:github.com/<you>/pi-team`.
+Remove with: `pi remove git:github.com/oorbt/pi-team`.
 
 ## Config: `.slai/team.yaml`
 
