@@ -4,6 +4,11 @@
 	"description": "Build a team of agents from .slai/team.yaml — per-agent model, role, persona, and tool permissions, dispatched as isolated pi subprocesses.",
 	"private": true,
 	"type": "module",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/oorbt/pi-team.git"
+	},
+	"bugs": "https://github.com/oorbt/pi-team/issues",
 	"keywords": ["pi-package"],
 	"pi": {
 		"extensions": ["./extensions/team/index.ts"]
