@@ -1,5 +1,5 @@
 /**
- * Team extension: build a team of agents from .slai/team.yaml.
+ * Team extension: build a team of agents from .pi/team.yaml.
  *
  * Every agent gets its own model, role prompt, and tool permissions, and runs
  * in its own `pi` subprocess with an isolated context window. The active
@@ -14,7 +14,7 @@
  *   /team reload     reload extensions and the team config
  *   /team run <id> <task...>   dispatch directly from the user
  *
- * Config: `.slai/team.yaml` (searched upward from cwd), falling back to
+ * Config: `.pi/team.yaml` (searched upward from cwd), falling back to
  * `~/.pi/agent/team.yaml`. See the extension README for the full schema.
  */
 
@@ -343,7 +343,7 @@ export default function teamExtension(pi: ExtensionAPI) {
 		? initial.config.agents
 				.map((a) => `${a.id} (${a.role}, ${a.resolvedModel ?? a.model ?? "session model"})`)
 				.join("; ")
-		: "none (create .slai/team.yaml)";
+		: "none (create .pi/team.yaml)";
 
 	const guidelines: string[] = [];
 	if (initial.config) {
@@ -360,7 +360,7 @@ export default function teamExtension(pi: ExtensionAPI) {
 		name: "team",
 		label: "Team",
 		description: [
-			"Delegate tasks to your team of agents. Each agent runs in its own pi subprocess with its own model, role system prompt, and tool permissions, defined in .slai/team.yaml.",
+			"Delegate tasks to your team of agents. Each agent runs in its own pi subprocess with its own model, role system prompt, and tool permissions, defined in .pi/team.yaml.",
 			"Modes: single ({agent, task}), parallel ({tasks: [...]}), chain ({chain: [...]} with a {previous} placeholder).",
 			`Agents: ${descriptionAgents}.`,
 		].join(" "),
@@ -412,7 +412,7 @@ export default function teamExtension(pi: ExtensionAPI) {
 	});
 
 	pi.registerCommand("team", {
-		description: "Show the agent team roster from .slai/team.yaml",
+		description: "Show the agent team roster from .pi/team.yaml",
 		getArgumentCompletions: (prefix) => {
 			const options = ["reload", "run"];
 			for (const a of initial.config?.agents ?? []) options.push(a.id);

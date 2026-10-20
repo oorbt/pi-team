@@ -1,7 +1,7 @@
 {
 	"name": "pi-team",
 	"version": "0.1.0",
-	"description": "Build a team of agents from .slai/team.yaml — per-agent model, role, persona, and tool permissions, dispatched as isolated pi subprocesses.",
+	"description": "Build a team of agents from .pi/team.yaml — per-agent model, role, persona, and tool permissions, dispatched as isolated pi subprocesses.",
 	"private": true,
 	"type": "module",
 	"repository": {

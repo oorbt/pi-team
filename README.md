@@ -29,7 +29,7 @@ pi -e git:github.com/oorbt/pi-team
 Update after pushing changes: `pi update --extensions`.
 Remove with: `pi remove git:github.com/oorbt/pi-team`.
 
-## Config: `.slai/team.yaml`
+## Config: `.pi/team.yaml`
 
 Searched upward from the working directory; falls back to `~/.pi/agent/team.yaml`.
 
@@ -39,7 +39,7 @@ project:
   name: minion
   description: What this project is (injected into every agent's prompt)
   main_branch: main
-  integration_branch: slai/integration
+  integration_branch: integration
 defaults:                      # applied to every agent unless overridden
   permission_mode: auto        # auto | read_only | none
   max_turns_per_task: 40       # agent subprocess is stopped beyond this

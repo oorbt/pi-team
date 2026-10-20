@@ -1,7 +1,7 @@
 /**
  * Team configuration: discovery, parsing, and validation of team.yaml.
  *
- * The roster is read from `.slai/team.yaml`, searched upward from the working
+ * The roster is read from `.pi/team.yaml`, searched upward from the working
  * directory, with a user-level fallback at `<agent-dir>/team.yaml`
  * (i.e. ~/.pi/agent/team.yaml).
  *
@@ -96,11 +96,11 @@ function* walkUp(start: string): Generator<string> {
 	}
 }
 
-/** Find the nearest team config: `.slai/team.{yaml,yml}` upward, then user-level. */
+/** Find the nearest team config: `.pi/team.{yaml,yml}` upward, then user-level. */
 export function findTeamConfigPath(cwd: string): string | null {
 	for (const base of walkUp(cwd)) {
 		for (const name of ["team.yaml", "team.yml"]) {
-			const candidate = path.join(base, ".slai", name);
+			const candidate = path.join(base, ".pi", name);
 			if (isFile(candidate)) return candidate;
 		}
 	}
@@ -312,7 +312,7 @@ export function loadTeamConfig(cwd: string): TeamLoadResult {
 		return {
 			config: null,
 			warnings,
-			error: `No team.yaml found. Create one at .slai/team.yaml (or ${getAgentDir()}${path.sep}team.yaml).`,
+			error: `No team.yaml found. Create one at .pi/team.yaml (or ${getAgentDir()}${path.sep}team.yaml).`,
 		};
 	}
 
